@@ -30,7 +30,7 @@ export default (domComponents, config = {}) => {
                 // Properties
                 initialSlide: '0',
                 speed: 300,
-                slidesPerView: 1,
+                slidesPerView: 3,
                 spaceBetween: '0',
                 slidesPerGroup: 1,
                 slidesOffsetBefore: '0',
@@ -278,7 +278,8 @@ export default (domComponents, config = {}) => {
                 draggable: true,
 
                 style: {
-                    'min-height': '50px;'
+                  'padding': '30px 50px',
+                  'height': '239px'
                 },
 
                 'script-deps': config.script,
@@ -382,6 +383,12 @@ export default (domComponents, config = {}) => {
                 },
                 ...config.sliderProps
             },
+            init(){
+              this.addClass("swiper-slider swiper-container-horizontal");
+              this.addStyle({ "position": "relative" });
+              // this.addStyle({ "padding": "30px 50px" });
+              // this.addStyle({ "height": "239px" });
+            },
         }, {
             isComponent(el) {
                 if (el.hasAttribute && el.hasAttribute(containerId)) {
@@ -438,7 +445,9 @@ export default (domComponents, config = {}) => {
                 // Add a basic template if it's not yet initialized
                 if (!comps.length) {
                     comps.add(`
-                            <div data-gjs-type="${wrapperName}">${config.slideEls}</div>
+                            <div data-gjs-type="${wrapperName}">
+                              ${config.slideEls}
+                            </div>
                             <div data-gjs-type="${prevName}"></div>
                             <div data-gjs-type="${nextName}"></div>
                             <div data-gjs-type="${paginationName}"></div>

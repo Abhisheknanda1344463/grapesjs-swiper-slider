@@ -16,6 +16,12 @@ export default (dc, config = {}) => {
         draggable: wrapperSelector,
         ...config.slideProps
       },
+      init(){
+        this.addStyle({ "font-size": "25px" });
+        this.addStyle({ "text-align": "center" });
+        this.addStyle({ "width": "214.667px !important" });
+        this.addStyle({ "margin-right": "30px" });
+      },
     }, {
       isComponent(el) {
         if (elHasClass(el, config.classSlide)) return { type: slideName };

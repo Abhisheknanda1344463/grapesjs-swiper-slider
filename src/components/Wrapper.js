@@ -16,12 +16,14 @@ export default (dc, config = {}) => {
       defaults: {
         ...defaultModel.prototype.defaults,
         name: 'Wrapper',
-        droppable: slideSelector,
+        attributes: { "highlightable": false },
         draggable: containerSelector,
         ...config.wrapperProps
       },
 
       init() {
+        this.addAttributes({"data-highlightable": false });
+        // this.addStyle({ "height": "239px"});
         const cls = config.classWrapper;
         this.get('classes').pluck('name').indexOf(cls) < 0 && this.addClass(cls);
       }

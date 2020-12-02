@@ -16,7 +16,9 @@ export default grapesjs.plugins.add('grapesjs-swiper-slider', (editor, opts = {}
             containerProps: {},
 
             // Object to extend the default wrapper properties
-            wrapperProps: {},
+            wrapperProps: {
+              attributes: { "highlightable": false },
+            },
 
             // Object to extend the default slide properties
             slideProps: {},
@@ -35,9 +37,12 @@ export default grapesjs.plugins.add('grapesjs-swiper-slider', (editor, opts = {}
 
             // Default slides
             slideEls: `
-              <div class="swiper-slide"><p>Slide 1</p></div>
-              <div class="swiper-slide"><p>Slide 2</p></div>
-              <div class="swiper-slide"><p>Slide 3</p></div>
+              <div class="swiper-slide"><div>Slide 1</div></div>
+              <div class="swiper-slide"><div>Slide 2</div></div>
+              <div class="swiper-slide"><div>Slide 3</div></div>
+              <div class="swiper-slide"><div>Slide 4</div></div>
+              <div class="swiper-slide"><div>Slide 5</div></div>
+              <div class="swiper-slide"><div>Slide 6</div></div>
             `,
 
             // Previous nav element string, as for example, an HTML string
