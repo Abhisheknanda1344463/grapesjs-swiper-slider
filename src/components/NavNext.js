@@ -21,6 +21,7 @@ export default (dc, config = {}) => {
 
       init() {
         this.addAttributes({"data-highlightable": false });
+        debugger
         this.get('classes').pluck('name').indexOf(classId) < 0 && this.addClass(classId);
       }
     }, {

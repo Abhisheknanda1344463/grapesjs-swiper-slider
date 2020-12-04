@@ -19,7 +19,6 @@ export default (dc, config = {}) => {
       init(){
         this.addStyle({ "font-size": "25px" });
         this.addStyle({ "text-align": "center" });
-        this.addStyle({ "width": "214.667px !important" });
         this.addStyle({ "margin-right": "30px" });
       },
     }, {

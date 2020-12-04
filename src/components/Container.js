@@ -45,7 +45,7 @@ export default (domComponents, config = {}) => {
                 scrollbar: false,
 
                 // Autoplay
-                autoplay: true,
+                autoplay: false,
                 autoplayDelay: 3000,
                 autoplayStopOnLastSlide: false,
                 autoplayDisableOnInteraction: true,
@@ -69,16 +69,69 @@ export default (domComponents, config = {}) => {
 
                 traits: [
                     {
+                        type: 'checkbox',
+                        label: 'Autoplay',
+                        name: 'autoplay',
+                        changeProp: 1,
+                    },
+                    {
+                        type: 'checkbox',
+                        label: 'Loop',
+                        name: 'loop',
+                        changeProp: 1,
+                    },
+                    {
+                        type: 'checkbox',
+                        label: 'Scrollbar',
+                        name: 'scrollbar',
+                        changeProp: 1,
+                    },
+                    {
                         type: 'number',
                         label: 'Initial Slide',
                         name: 'initialSlide',
                         changeProp: 1,
                     },
                     {
+                        type: 'select',
+                        label: 'Direction',
+                        name: 'direction',
+                        changeProp: 1,
+                        options: [
+                            'horizontal',
+                            'vertical',
+                        ]
+                    },
+                    {
                         type: 'number',
                         label: 'Speed',
                         name: 'speed',
                         changeProp: 1,
+                    },
+                    {
+                        type: 'select',
+                        label: 'Pagination',
+                        name: 'pagination',
+                        changeProp: 1,
+                        options: [
+                            'none',
+                            'bullets',
+                            'fraction',
+                            'progressbar',
+                        ]
+                    },
+                    {
+                        type: 'select',
+                        label: 'Transition effect',
+                        name: 'effect',
+                        changeProp: 1,
+                        options: [
+                            'slide',
+                            'fade',
+                            'cube',
+                            'coverflow',
+                            'flip',
+                        ]
                     },
                     {
                         type: 'number',
@@ -88,14 +141,14 @@ export default (domComponents, config = {}) => {
                     },
                     {
                         type: 'number',
-                        label: 'Space Between',
-                        name: 'spaceBetween',
+                        label: 'Slides Per Group',
+                        name: 'slidesPerGroup',
                         changeProp: 1,
                     },
                     {
                         type: 'number',
-                        label: 'Slides Per Group',
-                        name: 'slidesPerGroup',
+                        label: 'Space Between',
+                        name: 'spaceBetween',
                         changeProp: 1,
                     },
                     {
@@ -108,12 +161,6 @@ export default (domComponents, config = {}) => {
                         type: 'number',
                         label: 'Slides Offset After',
                         name: 'slidesOffsetAfter',
-                        changeProp: 1,
-                    },
-                    {
-                        type: 'checkbox',
-                        label: 'Autoplay',
-                        name: 'autoplay',
                         changeProp: 1,
                     },
                     {
@@ -146,35 +193,12 @@ export default (domComponents, config = {}) => {
                         name: 'autoplayWaitForTransition',
                         changeProp: 1,
                     },
-                    {
-                        type: 'select',
-                        label: 'Direction',
-                        name: 'direction',
-                        changeProp: 1,
-                        options: [
-                            'horizontal',
-                            'vertical',
-                        ]
-                    },
-                    {
-                        type: 'select',
-                        label: 'Transition effect',
-                        name: 'effect',
-                        changeProp: 1,
-                        options: [
-                            'slide',
-                            'fade',
-                            'cube',
-                            'coverflow',
-                            'flip',
-                        ]
-                    },
-                    {
-                        type: 'checkbox',
-                        label: 'Auto Height',
-                        name: 'autoHeight',
-                        changeProp: 1,
-                    },
+                    // {
+                    //     type: 'checkbox',
+                    //     label: 'Auto Height',
+                    //     name: 'autoHeight',
+                    //     changeProp: 1,
+                    // },
                     {
                         type: 'checkbox',
                         label: 'Watch Overflow',
@@ -185,90 +209,6 @@ export default (domComponents, config = {}) => {
                         type: 'checkbox',
                         label: 'Centered Slides',
                         name: 'centeredSlides',
-                        changeProp: 1,
-                    },
-                    {
-                        type: 'checkbox',
-                        label: 'Loop',
-                        name: 'loop',
-                        changeProp: 1,
-                    },
-                    {
-                        type: 'checkbox',
-                        label: 'Scrollbar',
-                        name: 'scrollbar',
-                        changeProp: 1,
-                    },
-                    {
-                        type: 'select',
-                        label: 'Pagination',
-                        name: 'pagination',
-                        changeProp: 1,
-                        options: [
-                            'none',
-                            'bullets',
-                            'fraction',
-                            'progressbar',
-                        ]
-                    },
-
-                    // Small
-                    {
-                        type: 'number',
-                        label: 'Small Slides Per View',
-                        name: 'smallSlidesPerView',
-                        changeProp: 1,
-                    },
-                    {
-                        type: 'number',
-                        label: 'Small Space Between',
-                        name: 'smallSpaceBetween',
-                        changeProp: 1,
-                    },
-                    {
-                        type: 'number',
-                        label: 'Small Slider Per Group',
-                        name: 'smallSlidesPerGroup',
-                        changeProp: 1,
-                    },
-
-                    // Medium
-                    {
-                        type: 'number',
-                        label: 'Medium Slides Per View',
-                        name: 'mediumSlidesPerView',
-                        changeProp: 1,
-                    },
-                    {
-                        type: 'number',
-                        label: 'Medium Space Between',
-                        name: 'mediumSpaceBetween',
-                        changeProp: 1,
-                    },
-                    {
-                        type: 'number',
-                        label: 'Medium Slider Per Group',
-                        name: 'mediumSlidesPerGroup',
-                        changeProp: 1,
-                    },
-
-                    // Large
-                    {
-                        type: 'number',
-                        label: 'Large Slides Per View',
-                        name: 'largeSlidesPerView',
-                        changeProp: 1,
-                    },
-                    {
-                        type: 'number',
-                        label: 'Large Space Between',
-                        name: 'largeSpaceBetween',
-                        changeProp: 1,
-                    },
-                    {
-                        type: 'number',
-                        label: 'Large Slider Per Group',
-                        name: 'largeSlidesPerGroup',
                         changeProp: 1,
                     },
                 ],
@@ -318,23 +258,6 @@ export default (domComponents, config = {}) => {
                             prevEl: `#${elId} .swiper-button-prev`,
                         },
                         breakpointsInverse: true,
-                        breakpoints: {
-                            576: {
-                                slidesPerView: parseInt('{[ smallSlidesPerView ]}', 10),
-                                spaceBetween: parseInt('{[ smallSpaceBetween ]}', 10),
-                                slidesPerGroup: parseInt('{[ smallSlidesPerGroup ]}', 10),
-                            },
-                            768: {
-                                slidesPerView: parseInt('{[ mediumSlidesPerView ]}', 10),
-                                spaceBetween: parseInt('{[ mediumSpaceBetween ]}', 10),
-                                slidesPerGroup: parseInt('{[ mediumSlidesPerGroup ]}', 10),
-                            },
-                            992: {
-                                slidesPerView: parseInt('{[ largeSlidesPerView ]}', 10),
-                                spaceBetween: parseInt('{[ largeSpaceBetween ]}', 10),
-                                slidesPerGroup: parseInt('{[ largeSlidesPerGroup ]}', 10),
-                            },
-                        }
                     };
 
                     if (!falsies.includes('{[ pagination ]}')) {
@@ -384,7 +307,6 @@ export default (domComponents, config = {}) => {
                 ...config.sliderProps
             },
             init(){
-              this.addClass("swiper-slider swiper-container-horizontal");
               this.addStyle({ "position": "relative" });
               // this.addStyle({ "padding": "30px 50px" });
               // this.addStyle({ "height": "239px" });
@@ -421,21 +343,21 @@ export default (domComponents, config = {}) => {
                     'autoplayDisableOnInteraction',
                     'autoplayReverseDirection',
                     'autoplayWaitForTransition',
-
-                    // Small
-                    'smallSlidesPerView',
-                    'smallSpaceBetween',
-                    'smallSlidesPerGroup',
-
-                    // Medium
-                    'mediumSlidesPerView',
-                    'mediumSpaceBetween',
-                    'mediumSlidesPerGroup',
-
-                    // Large
-                    'largeSlidesPerView',
-                    'largeSpaceBetween',
-                    'largeSlidesPerGroup',
+                    //
+                    // // Small
+                    // 'smallSlidesPerView',
+                    // 'smallSpaceBetween',
+                    // 'smallSlidesPerGroup',
+                    //
+                    // // Medium
+                    // 'mediumSlidesPerView',
+                    // 'mediumSpaceBetween',
+                    // 'mediumSlidesPerGroup',
+                    //
+                    // // Large
+                    // 'largeSlidesPerView',
+                    // 'largeSpaceBetween',
+                    // 'largeSlidesPerGroup',
                 ];
 
                 const reactTo = props.map(prop => `change:${prop}`).join(' ');
